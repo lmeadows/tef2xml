@@ -18,7 +18,9 @@ To ensure high reliability and eliminate LLM syntax drift, this project enforces
 * **Objective:** Build a local test harness that passes a test suite of varied `.tef` data dumps through the pipeline.
 * **Goal:** Automatically validate the generated MusicXML outputs against time-signature math and the official W3C MusicXML schema definition to capture edge cases.
 
+```mermaid
 graph LR
+
     %% Style Definitions
     classDef data fill:#ececff,stroke:#9393db,stroke-width:2px,color:#000;
     classDef engine fill:#ffe6cc,stroke:#d79b00,stroke-width:2px,color:#000;
@@ -40,3 +42,4 @@ graph LR
     D --> E
     E --> F
     F --> G
+```
