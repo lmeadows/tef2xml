@@ -1,5 +1,5 @@
 # Specify the base local model
-FROM qwen3.5:9b
+FROM qwen2.5:1.5b
 
 # Force the model to skip warnings, restrictions, and confirmation cycles
 SYSTEM """
