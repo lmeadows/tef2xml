@@ -10,4 +10,4 @@ model-build:
 	ollama create qwen-yolo -f ./Modelfile
 
 model-run:
-	ollama run qwen-yolo
+	OLLAMA_API_BASE=http://localhost:11434 aider --model ollama/qwen-yolo
