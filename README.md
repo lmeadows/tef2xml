@@ -17,3 +17,26 @@ To ensure high reliability and eliminate LLM syntax drift, this project enforces
 ### Phase 3: The Automated Verification Loop
 * **Objective:** Build a local test harness that passes a test suite of varied `.tef` data dumps through the pipeline.
 * **Goal:** Automatically validate the generated MusicXML outputs against time-signature math and the official W3C MusicXML schema definition to capture edge cases.
+
+graph LR
+    %% Style Definitions
+    classDef data fill:#ececff,stroke:#9393db,stroke-width:2px,color:#000;
+    classDef engine fill:#ffe6cc,stroke:#d79b00,stroke-width:2px,color:#000;
+    classDef llm fill:#d5e8d4,stroke:#82b366,stroke-width:2px,color:#000;
+
+    %% Nodes
+    A([Raw TEF Data]) :::data
+    B[Go Binary Extractor] :::engine
+    C([Messy Structural Text]) :::data
+    D[Ollama / Qwen] :::llm
+    E([Clean JSON Schema]) :::data
+    F[Go XML Encoder] :::engine
+    G([Strict MusicXML]) :::data
+
+    %% Pipeline Flow
+    A --> B
+    B --> C    
+    C --> D
+    D --> E
+    E --> F
+    F --> G
