@@ -18,10 +18,35 @@ To ensure high reliability and eliminate LLM syntax drift, this project enforces
 * **Objective:** Build a local test harness that passes a test suite of varied `.tef` data dumps through the pipeline.
 * **Goal:** Automatically validate the generated MusicXML outputs against time-signature math and the official W3C MusicXML schema definition to capture edge cases.
 
+```mermaid
 graph LR
-    A[Raw TEF Data] --> B[Go Binary Extractor]
-    B --> C[Messy Structural Text]   
-    C --> D[Ollama / Qwen]
-    D --> E[Clean JSON Schema]
-    E --> F[Go XML Encoder]
-    F --> G[Strict MusicXML]
+    %% Data Nodes
+    A([Raw TEF Data])
+    C([Messy Structural Text])
+    E([Clean JSON Schema])
+    G([Strict MusicXML])
+
+    %% Processing Engines
+    B[Go Binary Extractor]
+    F[Go XML Encoder]
+
+    %% AI Layer
+    D{Ollama / Qwen}
+
+    %% Pipeline Connections
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+
+    %% Visual Styling
+    classDef data fill:#ececff,stroke:#9393db,stroke-width:2px;
+    classDef engine fill:#ffe6cc,stroke:#d79b00,stroke-width:2px;
+    classDef llm fill:#d5e8d4,stroke:#82b366,stroke-width:2px;
+
+    class A,C,E,G data;
+    class B,F engine;
+    class D llm;
+```
