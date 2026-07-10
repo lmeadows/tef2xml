@@ -4,8 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"log"
-
-	"github.com/yourusername/tabledit_parser"
 )
 
 func main() {
