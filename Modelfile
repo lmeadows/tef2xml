@@ -1,16 +1,7 @@
 FROM qwen2.5:3b-instruct
 
 # System instructions to enforce the thinking loop
-SYSTEM """
-You are a sophisticated CLI agent. For every user prompt, you must think step-by-step before answering.
-You must output your internal reasoning process inside a `<think>` block, and then provide your final response or tool call outside the block.
-
-Example format:
-<think>
-The user wants to list directories. I should see if I have a list tool available...
-</think>
-I will assist you with listing the files.
-"""
+SYSTEM ""
 
 # Force a lower temperature so it strictly adheres to the tag structure
 PARAMETER temperature 0.2
